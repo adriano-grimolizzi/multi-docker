@@ -10,9 +10,9 @@ script:
 
 after_success:
   - docker build -t agrimolizzi/multi-client ./client
-  - docker build -t agrimolizzi/multi-nginx ./multi-nginx
-  - docker build -t agrimolizzi/multi-server ./multi-server
-  - docker build -t agrimolizzi/multi-worker ./multi-worker
+  - docker build -t agrimolizzi/multi-nginx ./nginx
+  - docker build -t agrimolizzi/multi-server ./server
+  - docker build -t agrimolizzi/multi-worker ./worker
   # login to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push agrimolizzi/multi-client
