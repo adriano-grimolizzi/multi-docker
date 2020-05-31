@@ -1,0 +1,33 @@
+{
+	"AWSEBDockerrunVersion": 2,
+	"containerDefinitions": [
+		{
+			"name": "nginx",
+			"image": "agrimolizzi/multi-nginx",
+			"hostname": "nginx",
+			"essential": true,
+			"portMappings": [
+				{
+					"hostPort": 80,
+					"containerPort": 80
+				}
+			],
+			"links": ["client", "server"]
+		}, {
+			"name": "client",
+			"image": "agrimolizzi/multi-client",
+			"hostname": "client",
+			"essential": false
+		}, {
+			"name": "server",
+			"image": "agrimolizzi/multi-server",
+			"hostname": "api",
+			"essential": false
+		}, {
+			"name": "worker",
+			"image": "agrimolizzi/multi-worker",
+			"hostname": "worker",
+			"essential": false
+		},
+	]
+}
